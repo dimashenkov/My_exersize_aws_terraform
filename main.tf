@@ -16,5 +16,6 @@ module "networking" {
   source       = "./networking"
   vpc_cidr     = "${var.vpc_cidr}"
   public_cidrs = "${var.public_cidrs}"
+  privat_cidrs = "${var.privat_cidrs}"
 }
 

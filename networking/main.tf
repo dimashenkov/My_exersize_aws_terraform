@@ -44,7 +44,7 @@ resource "aws_default_route_table" "wp_private_rt" {
   }
 }
 
-#2 subnets
+#2 public subnets
 
 resource "aws_subnet" "wp_public_subnet" {
   count                   = 2
@@ -55,6 +55,20 @@ resource "aws_subnet" "wp_public_subnet" {
 
   tags = {
     Name = "wp_public_${count.index+1}"
+  }
+}
+
+# 2 privat subnets
+
+resource "aws_subnet" "wp_privat_subnet" {
+  count                   = 2
+  vpc_id                  = "${aws_vpc.wp_vpc.id}"
+  cidr_block              = "${var.privat_cidrs[count.index]}"
+  map_public_ip_on_launch = false
+  availability_zone       = "${data.aws_availability_zones.available.names[count.index]}"
+
+  tags = {
+    Name = "wp_privat_${count.index+1}"
   }
 }
 
