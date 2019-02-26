@@ -114,7 +114,7 @@ POLICY
 }
 
 
-# PUBLIC Association/zaka4ane rout tables to subnets
+# PUBLIC Association/zaka4ane route tables to subnets
 resource "aws_route_table_association" "wp_public_assoc" {
   count          = "${aws_subnet.wp_public_subnet.count}"
   subnet_id      = "${aws_subnet.wp_public_subnet.*.id[count.index]}"
@@ -122,7 +122,7 @@ resource "aws_route_table_association" "wp_public_assoc" {
 }
 
 
-# PRIVAT  Association/zaka4ane rout tables to subnets
+# PRIVAT  Association/zaka4ane route tables to subnets
 resource "aws_route_table_association" "wp_private_assoc" {
   count          = "${aws_subnet.wp_private_subnet.count}"
   subnet_id      = "${aws_subnet.wp_private_subnet.*.id[count.index]}"
