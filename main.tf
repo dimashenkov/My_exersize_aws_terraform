@@ -19,5 +19,6 @@ module "networking" {
   private_cidrs = "${var.private_cidrs}"
   rds_cidrs    = "${var.rds_cidrs}"
   aws_region   = "${var.aws_region}"
+  accessip     = "${var.accessip}"
 }
 

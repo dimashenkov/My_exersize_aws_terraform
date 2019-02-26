@@ -11,6 +11,7 @@ variable "rds_cidrs" {
   type = "list"
 }
 
-
-
+variable "accessip" {
+  type = "list"
+}
 variable "aws_region" {}
