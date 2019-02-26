@@ -7,3 +7,10 @@ variable "public_cidrs" {
 variable "privat_cidrs" {
   type = "list"
 }
+variable "rds_cidrs" {
+  type = "list"
+}
+
+
+
+variable "aws_region" {}
