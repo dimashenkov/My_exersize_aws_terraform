@@ -58,17 +58,17 @@ resource "aws_subnet" "wp_public_subnet" {
   }
 }
 
-# 2 privat subnets
+# 2 private subnets
 
-resource "aws_subnet" "wp_privat_subnet" {
+resource "aws_subnet" "wp_private_subnet" {
   count                   = 2
   vpc_id                  = "${aws_vpc.wp_vpc.id}"
-  cidr_block              = "${var.privat_cidrs[count.index]}"
+  cidr_block              = "${var.private_cidrs[count.index]}"
   map_public_ip_on_launch = false
   availability_zone       = "${data.aws_availability_zones.available.names[count.index]}"
 
   tags = {
-    Name = "wp_privat_${count.index+1}"
+    Name = "wp_private_${count.index+1}"
   }
 }
 
@@ -111,5 +111,21 @@ resource "aws_vpc_endpoint" "wp_private-s3_endpoint" {
     ]
 }
 POLICY
+}
+
+
+# PUBLIC Association/zaka4ane rout tables to subnets
+resource "aws_route_table_association" "wp_public_assoc" {
+  count          = "${aws_subnet.wp_public_subnet.count}"
+  subnet_id      = "${aws_subnet.wp_public_subnet.*.id[count.index]}"
+  route_table_id = "${aws_route_table.wp_public_rt.id}"
+}
+
+
+# PRIVAT  Association/zaka4ane rout tables to subnets
+resource "aws_route_table_association" "wp_private_assoc" {
+  count          = "${aws_subnet.wp_private_subnet.count}"
+  subnet_id      = "${aws_subnet.wp_private_subnet.*.id[count.index]}"
+  route_table_id = "${aws_default_route_table.wp_private_rt.id}"
 }
 

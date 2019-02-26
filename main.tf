@@ -16,7 +16,7 @@ module "networking" {
   source       = "./networking"
   vpc_cidr     = "${var.vpc_cidr}"
   public_cidrs = "${var.public_cidrs}"
-  privat_cidrs = "${var.privat_cidrs}"
+  private_cidrs = "${var.private_cidrs}"
   rds_cidrs    = "${var.rds_cidrs}"
   aws_region   = "${var.aws_region}"
 }
