@@ -129,3 +129,14 @@ resource "aws_route_table_association" "wp_private_assoc" {
   route_table_id = "${aws_default_route_table.wp_private_rt.id}"
 }
 
+
+#RDS association
+resource "aws_db_subnet_group" "wp_rds_subnetgroup" {
+  name = "wp_rds_subnetgroup"
+
+  subnet_ids = ["${aws_subnet.wp_rds_subnet.*.id}"]
+
+  tags {
+    Name = "wp_rds_sng"
+  }
+}
