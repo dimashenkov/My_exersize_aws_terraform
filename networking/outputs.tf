@@ -10,7 +10,7 @@ output "public_sg" {
 output "subnet_ips" {
   value = "${aws_subnet.wp_public_subnet.*.cidr_block}"
 }
----new----
+#---new----
 output "db_subnet_group_name" {
 	value = "${aws_db_subnet_group.wp_rds_subnetgroup.name}"
 }
