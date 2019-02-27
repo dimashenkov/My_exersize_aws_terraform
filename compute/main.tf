@@ -16,3 +16,41 @@ resource "aws_db_instance" "wp_db" {
   skip_final_snapshot    = true             #bez taq opciq nemojesh da destroynesh
 }
 
+#----- key pair and ansible provisioning---
+
+resource "aws_key_pair" "wp_auth" {
+  key_name   = "${var.key_name}"
+  public_key = "${file(var.public_key_path)}"
+}
+
+#------dev server-----
+
+resource "aws_instance" "wp_dev" {
+  instance_type = "${var.dev_instance_type}"
+  ami           = "${var.dev_ami}"           #amazon image for this instace
+
+  tags {
+    Name = "wp_dev"
+  }
+
+  key_name               = "${aws_key_pair.wp_auth.id}"
+  vpc_security_group_ids = ["${var.vpc_security_group_ids}"]
+  iam_instance_profile   = "${var.iam_instance_profile}"
+  subnet_id              = "${var.public_subnets.1.id}"
+
+  provisioner "local-exec" {
+    command = <<EOD
+cat <<EOF > aws_hosts 
+[dev] 
+${var.wp_dev_public_ip} 
+[dev:vars] 
+s3code=${var.s3code}
+domain=${var.domain_name} 
+EOF
+EOD
+  }
+
+  provisioner "local-exec" {
+    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.wp_dev.id} --profile batman && ansible-playbook -i aws_hosts wordpress.yml"
+  }
+}

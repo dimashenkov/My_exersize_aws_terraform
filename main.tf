@@ -36,11 +36,22 @@ module "compute" {
   dbname = "${var.dbname}"
   dbuser = "${var.dbuser}"
   dbpassword = "${var.dbpassword}"
+  domain_name = "${var.domain_name}"
+
+  public_key_path ="${var.public_key_path}"
 
   public_subnets  = "${module.networking.public_subnets}"
   public_sg       = "${module.networking.public_sg}"
   subnet_ips      = "${module.networking.subnet_ips}"
+  wp_dev_public_ip = "${module.networking.wp_dev_public_ip}"
   
   db_subnet_group_name = "${module.networking.db_subnet_group_name}"
   vpc_security_group_ids = "${module.networking.vpc_security_group_ids}"
+
+  iam_instance_profile = "${module.iam.iam_instance_profile}"
+
+  s3code = "${module.storage.s3code}"
+
+
+
 }

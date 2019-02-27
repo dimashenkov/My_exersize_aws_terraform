@@ -19,3 +19,7 @@ db_instance_class	= "db.t2.micro"
 dbname			= "supermandb"
 dbuser			= "superman"
 dbpassword		= "superman123456"
+
+#ansible
+public_key_path = "/home/user/superman.pub"
+key_name = "superman"
