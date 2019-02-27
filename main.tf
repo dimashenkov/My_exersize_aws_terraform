@@ -4,10 +4,10 @@ provider "aws" {
   profile = "${var.aws_profile}"
 }
 
-# Create IMA for s3
+# Create IAM for s3
 
-module "ima" {
-  source = "./ima"
+module "iam" {
+  source = "./iam"
 }
 
 # Deploy networking resource
