@@ -72,7 +72,6 @@ resource "aws_subnet" "wp_private_subnet" {
   }
 }
 
-
 # 3 RDS subnets
 
 resource "aws_subnet" "wp_rds_subnet" {
@@ -86,9 +85,6 @@ resource "aws_subnet" "wp_rds_subnet" {
     Name = "wp_rds_${count.index+1}"
   }
 }
-
-
-
 
 #S3 VPC endpoint
 resource "aws_vpc_endpoint" "wp_private-s3_endpoint" {
@@ -113,7 +109,6 @@ resource "aws_vpc_endpoint" "wp_private-s3_endpoint" {
 POLICY
 }
 
-
 # PUBLIC Association/zaka4ane route tables to subnets
 resource "aws_route_table_association" "wp_public_assoc" {
   count          = "${aws_subnet.wp_public_subnet.count}"
@@ -121,14 +116,12 @@ resource "aws_route_table_association" "wp_public_assoc" {
   route_table_id = "${aws_route_table.wp_public_rt.id}"
 }
 
-
 # PRIVAT  Association/zaka4ane route tables to subnets
 resource "aws_route_table_association" "wp_private_assoc" {
   count          = "${aws_subnet.wp_private_subnet.count}"
   subnet_id      = "${aws_subnet.wp_private_subnet.*.id[count.index]}"
   route_table_id = "${aws_default_route_table.wp_private_rt.id}"
 }
-
 
 #RDS association group with subnets
 resource "aws_db_subnet_group" "wp_rds_subnetgroup" {
@@ -148,6 +141,7 @@ resource "aws_security_group" "wp_dev_sg" {
   name        = "wp_dev_sg"
   description = "Used for access to the dev instance"
   vpc_id      = "${aws_vpc.wp_vpc.id}"
+
   #SSH
 
   ingress {
@@ -207,7 +201,7 @@ resource "aws_security_group" "wp_private_sg" {
   vpc_id      = "${aws_vpc.wp_vpc.id}"
 
   # Access from other security groups
-
+  #Access  from VPC
   ingress {
     from_port   = 0
     to_port     = 0
@@ -234,7 +228,7 @@ resource "aws_security_group" "wp_rds_sg" {
     from_port = 3306
     to_port   = 3306
     protocol  = "tcp"
-
+# moje i s sidr block  no za u4ebna cel napraveno s sec groups
     security_groups = ["${aws_security_group.wp_dev_sg.id}",
       "${aws_security_group.wp_public_sg.id}",
       "${aws_security_group.wp_private_sg.id}",

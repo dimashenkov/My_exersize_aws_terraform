@@ -10,3 +10,6 @@ rds_cidrs    = ["10.0.5.0/24", "10.0.6.0/24","10.0.7.0/24"]
 
 accessip = ["0.0.0.0/0"]
 
+# storage
+# bez .co.uk za6toto to 6te se dobavi s script ponatam
+domain_name = "kurshum"
