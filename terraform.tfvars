@@ -16,6 +16,6 @@ domain_name = "kurshum"
 
 #DB
 db_instance_class	= "db.t2.micro"
-dbname			= "batmandb"
-dbuser			= "batman"
-dbpassword		= "batman123456"
+dbname			= "supermandb"
+dbuser			= "superman"
+dbpassword		= "superman123456"
