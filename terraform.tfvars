@@ -13,3 +13,9 @@ accessip = ["0.0.0.0/0"]
 # storage
 # bez .co.uk za6toto to 6te se dobavi s script ponatam
 domain_name = "kurshum"
+
+#DB
+db_instance_class	= "db.t2.micro"
+dbname			= "batmandb"
+dbuser			= "batman"
+dbpassword		= "batman123456"

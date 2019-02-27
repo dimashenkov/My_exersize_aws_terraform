@@ -26,3 +26,9 @@ variable "accessip" {
 
 #-------storage--------
 variable "domain_name" {}
+
+#------DB------
+variable "db_instance_class" {}
+variable "dbname" {}
+variable "dbuser" {}
+variable "dbpassword" {}

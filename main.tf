@@ -1,3 +1,4 @@
+#-----root/main.tf----
 provider "aws" {
   region  = "${var.aws_region}"
   profile = "${var.aws_profile}"
@@ -26,4 +27,16 @@ module "networking" {
 module "storage" {
   source = "./storage"
   domain_name = "${var.domain_name}"
+}
+
+# Deploy Compute Resource
+module "compute" {
+  source          = "./compute"
+
+  public_subnets  = "${module.networking.public_subnets}"
+  public_sg       = "${module.networking.public_sg}"
+  subnet_ips      = "${module.networking.subnet_ips}"
+  
+  db_subnet_group_name = "${module.networking.db_subnet_group_name}"
+  vpc_security_group_ids = "${module.networking.vpc_security_group_ids}"
 }

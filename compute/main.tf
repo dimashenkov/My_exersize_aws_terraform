@@ -10,8 +10,9 @@ resource "aws_db_instance" "wp_db" {
   name                   = "${var.dbname}"
   username               = "${var.dbuser}"
   password               = "${var.dbpassword}"
-  db_subnet_group_name   = "${aws_db_subnet_group.wp_rds_subnetgroup.name}"
-  vpc_security_group_ids = ["${aws_security_group.wp_rds_sg.id}"]
+
+  db_subnet_group_name   = "${var.db_subnet_group_name}"
+  vpc_security_group_ids = ["${var.vpc_security_group_ids}"]
   skip_final_snapshot    = true
 }
 
