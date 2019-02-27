@@ -38,6 +38,7 @@ module "compute" {
   dbpassword = "${var.dbpassword}"
   domain_name = "${var.domain_name}"
 
+
   public_key_path ="${var.public_key_path}"
 
   public_subnets  = "${module.networking.public_subnets}"
@@ -52,6 +53,7 @@ module "compute" {
   wp_dev_instance_id = "${module.networking.wp_dev_instance_id}"
   s3code = "${module.storage.s3code}"
 
-
+  dev_instance_type = "${var.dev_instance_type}"
+  dev_ami     = "${var.dev_ami}"
 
 }

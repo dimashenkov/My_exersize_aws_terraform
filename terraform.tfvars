@@ -23,3 +23,7 @@ dbpassword		= "superman123456"
 #ansible
 public_key_path = "/home/user/superman.pub"
 key_name = "superman"
+
+#compute
+dev_instance_type	= "t2.micro"
+dev_ami			= "ami-b73b63a0"
