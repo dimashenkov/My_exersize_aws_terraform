@@ -13,6 +13,6 @@ resource "aws_db_instance" "wp_db" {
 
   db_subnet_group_name   = "${var.db_subnet_group_name}"
   vpc_security_group_ids = ["${var.vpc_security_group_ids}"]
-  skip_final_snapshot    = true
+  skip_final_snapshot    = true             #bez taq opciq nemojesh da destroynesh
 }
 
