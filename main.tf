@@ -32,6 +32,10 @@ module "storage" {
 # Deploy Compute Resource
 module "compute" {
   source          = "./compute"
+  db_instance_class = "${var.db_instance_class}"
+  dbname = "${var.dbname}"
+  dbuser = "${var.dbuser}"
+  dbpassword = "${var.dbpassword}"
 
   public_subnets  = "${module.networking.public_subnets}"
   public_sg       = "${module.networking.public_sg}"
