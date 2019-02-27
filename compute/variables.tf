@@ -8,6 +8,7 @@ variable "dev_instance_type" {}
 variable "dev_ami" {}
 
 variable "domain_name" {}
+
 #--from network---
 variable "public_subnets" {
 	type = "list"
@@ -21,6 +22,7 @@ variable "vpc_security_group_ids" {}
 
 variable "wp_dev_public_ip" {}
 
+variable "wp_dev_instance_id" {}
 #---------
 variable "public_key_path" {}
 
