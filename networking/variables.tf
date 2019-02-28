@@ -28,5 +28,5 @@ variable "elb_timeout" {}
 variable "elb_interval" {}
 
 variable "delegation_set" {}
-variable "wp_dev_public_ip"  {}
-variable "wp_db_address" {}
+#variable "wp_dev_public_ip"  {}
+#variable "wp_db_address" {}
