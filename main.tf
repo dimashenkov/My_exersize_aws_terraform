@@ -27,6 +27,7 @@ module "networking" {
   domain_name     = "${var.domain_name}"
   wp_dev_public_ip = "${module.compute.wp_dev_public_ip}"
   wp_db_address = "${module.compute.wp_db_address}"
+  delegation_set = "${var.delegation_set}"
 }
 
 # Deploy storage s3
