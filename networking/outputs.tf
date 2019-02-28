@@ -20,6 +20,3 @@ output "vpc_security_group_ids" {
 }
 
 
-output "wp_dev_instance_id" {
-	value = "${aws_instance.wp_dev.id}"
-}

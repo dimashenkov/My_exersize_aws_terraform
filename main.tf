@@ -51,7 +51,6 @@ module "compute" {
   vpc_security_group_ids = "${module.networking.vpc_security_group_ids}"
 
   iam_instance_profile = "${module.iam.iam_instance_profile}"
-  wp_dev_instance_id = "${module.networking.wp_dev_instance_id}"
   s3code = "${module.storage.s3code}"
 
   dev_instance_type = "${var.dev_instance_type}"
