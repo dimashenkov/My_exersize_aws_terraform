@@ -21,7 +21,6 @@ variable "subnet_ips" {
 variable "db_subnet_group_name" {}
 variable "vpc_security_group_ids" {}
 
-variable "wp_dev_public_ip" {}
 
 variable "wp_dev_instance_id" {}
 #---------
