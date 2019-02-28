@@ -42,7 +42,7 @@ resource "aws_instance" "wp_dev" {
     command = <<EOD
 cat <<EOF > aws_hosts 
 [dev] 
-${var.wp_dev_public_ip} 
+${aws_instance.wp_dev.public_ip} 
 [dev:vars] 
 s3code=${var.s3code}
 domain=${var.domain_name} 
