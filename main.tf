@@ -20,11 +20,11 @@ module "networking" {
   rds_cidrs     = "${var.rds_cidrs}"
   aws_region    = "${var.aws_region}"
   accessip      = "${var.accessip}"
-  elb_healthy_threshold   = "${elb_healthy_threshold2}"
-  elb_unhealthy_threshold = "${elb_unhealthy_threshold}"
-  elb_timeout     = "${elb_timeout}"
-  elb_interval    = "${elb_interval}"
-  domain_name     = "${domain_name}"
+  elb_healthy_threshold   = "${var.elb_healthy_threshold}"
+  elb_unhealthy_threshold = "${var.elb_unhealthy_threshold}"
+  elb_timeout     = "${var.elb_timeout}"
+  elb_interval    = "${var.elb_interval}"
+  domain_name     = "${var.domain_name}"
 }
 
 # Deploy storage s3
