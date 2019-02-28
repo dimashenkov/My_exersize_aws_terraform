@@ -15,8 +15,11 @@ output "db_subnet_group_name" {
 	value = "${aws_db_subnet_group.wp_rds_subnetgroup.name}"
 }
 
-output "vpc_security_group_ids" {
+output "wp_rds_security_group_ids" {
 	value = "${aws_security_group.wp_rds_sg.id}"
 }
 
+output "wp_dev_security_group_ids" {
+	value = "${aws_security_group.wp_dev_sg.id}"
+}
 

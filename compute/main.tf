@@ -12,7 +12,7 @@ resource "aws_db_instance" "wp_db" {
   password               = "${var.dbpassword}"
 
   db_subnet_group_name   = "${var.db_subnet_group_name}"
-  vpc_security_group_ids = ["${var.vpc_security_group_ids}"]
+  vpc_security_group_ids = ["${var.wp_rds_security_group_ids}"]
   skip_final_snapshot    = true             #bez taq opciq nemojesh da destroynesh
 }
 
@@ -34,7 +34,7 @@ resource "aws_instance" "wp_dev" {
   }
 
   key_name               = "${aws_key_pair.wp_auth.id}"
-  vpc_security_group_ids = ["${var.vpc_security_group_ids}"]
+  vpc_security_group_ids = ["${var.wp_dev_security_group_ids}"]
   iam_instance_profile   = "${var.iam_instance_profile}"
   subnet_id              = "${element(var.public_subnets, 0)}"
 

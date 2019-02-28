@@ -19,7 +19,8 @@ variable "subnet_ips" {
 	type = "list"
 }
 variable "db_subnet_group_name" {}
-variable "vpc_security_group_ids" {}
+variable "wp_rds_security_group_ids" {}
+variable "wp_dev_security_group_ids" {}
 
 
 #---------
