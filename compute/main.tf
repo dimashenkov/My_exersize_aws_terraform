@@ -108,7 +108,7 @@ resource "aws_autoscaling_group" "wp_asg" {
   health_check_type         = "${var.asg_hct}"
   desired_capacity          = "${var.asg_cap}"
   force_delete              = true
-  load_balancers            = ["${aws_elb.wp_elb.id}"]
+  load_balancers            = ["${var.wp_elb_id}"]
 
   #zonite v koito 6te deploiva -subneti 
   vpc_zone_identifier = ["${var.private_subnets}"]
