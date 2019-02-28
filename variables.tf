@@ -44,5 +44,5 @@ variable "public_key_path" {}
 variable "dev_instance_type" {}
 variable "dev_ami" {}
 variable "key_name" {}
-
+variable "lc_instance_type" {}
 

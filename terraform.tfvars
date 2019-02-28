@@ -32,3 +32,4 @@ key_name = "superman"
 #compute
 dev_instance_type	= "t2.micro"
 dev_ami			= "ami-b73b63a0"
+lc_instance_type = "t2.micro"

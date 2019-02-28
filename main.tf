@@ -49,6 +49,7 @@ module "compute" {
 
   public_subnets  = "${module.networking.public_subnets}"
   public_sg       = "${module.networking.public_sg}"
+  private_sg      = "${module.networking.private_sg}"
   subnet_ips      = "${module.networking.subnet_ips}"
   
   

@@ -7,6 +7,10 @@ output "public_sg" {
   value = "${aws_security_group.wp_public_sg.id}"
 }
 
+output "private_sg" {
+  value = "${aws_security_group.wp_private_sg.id}"
+}
+
 output "subnet_ips" {
   value = "${aws_subnet.wp_public_subnet.*.cidr_block}"
 }

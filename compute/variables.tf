@@ -15,6 +15,7 @@ variable "public_subnets" {
 	type = "list"
 }
 variable "public_sg" {}
+variable "private_sg" {}
 variable "subnet_ips" {
 	type = "list"
 }
@@ -31,3 +32,6 @@ variable "iam_instance_profile" {}
 
 #-----from storage--------
 variable "s3code" {}
+
+#----golden AMI----
+variable "lc_instance_type" {}
