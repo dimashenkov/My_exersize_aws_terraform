@@ -24,6 +24,7 @@ module "networking" {
   elb_unhealthy_threshold = "${elb_unhealthy_threshold}"
   elb_timeout     = "${elb_timeout}"
   elb_interval    = "${elb_interval}"
+  domain_name     = "${domain_name}"
 }
 
 # Deploy storage s3
