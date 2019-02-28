@@ -10,6 +10,10 @@ rds_cidrs    = ["10.0.5.0/24", "10.0.6.0/24","10.0.7.0/24"]
 
 accessip = ["0.0.0.0/0"]
 
+elb_healthy_threshold   = "2"
+elb_unhealthy_threshold = "2"
+elb_timeout 		= "3"
+elb_interval		= "30"
 # storage
 # bez .co.uk za6toto to 6te se dobavi s script ponatam
 domain_name = "kurshum"
