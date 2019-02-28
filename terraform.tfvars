@@ -39,3 +39,5 @@ asg_min			= "1"
 asg_grace		= "300"
 asg_hct			= "EC2"
 asg_cap			= "2"
+
+delegation_set 		= "N2S3DXC7A1TCAA"

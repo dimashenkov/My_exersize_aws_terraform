@@ -25,6 +25,8 @@ module "networking" {
   elb_timeout     = "${var.elb_timeout}"
   elb_interval    = "${var.elb_interval}"
   domain_name     = "${var.domain_name}"
+  wp_dev_public_ip = "${module.compute.wp_dev_public_ip}"
+  wp_db_address = "${module.compute.wp_db_address}"
 }
 
 # Deploy storage s3
@@ -52,6 +54,7 @@ module "compute" {
   public_sg       = "${module.networking.public_sg}"
   private_sg      = "${module.networking.private_sg}"
   subnet_ips      = "${module.networking.subnet_ips}"
+
   
   
   db_subnet_group_name = "${module.networking.db_subnet_group_name}"
