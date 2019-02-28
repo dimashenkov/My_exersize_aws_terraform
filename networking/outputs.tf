@@ -2,8 +2,8 @@
 output "public_subnets" {
   value = "${aws_subnet.wp_public_subnet.*.id}"
 }
-output "privat_subnets" {
-  value = "${aws_subnet.wp_privat_subnet.*.id}"
+output "private_subnets" {
+  value = "${aws_subnet.wp_private_subnet.*.id}"
 }
 
 output "public_sg" {

@@ -111,7 +111,7 @@ resource "aws_autoscaling_group" "wp_asg" {
   load_balancers            = ["${aws_elb.wp_elb.id}"]
 
   #zonite v koito 6te deploiva -subneti 
-  vpc_zone_identifier = ["${var.privat_subnets}"]
+  vpc_zone_identifier = ["${var.private_subnets}"]
 
   launch_configuration = "${aws_launch_configuration.wp_lc.name}"
 
