@@ -6,6 +6,7 @@ variable "dbpassword" {}
 
 variable "dev_instance_type" {}
 variable "dev_ami" {}
+variable "key_name" {}
 
 variable "domain_name" {}
 
