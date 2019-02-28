@@ -21,7 +21,7 @@ dbuser			= "superman"
 dbpassword		= "superman123456"
 
 #ansible
-public_key_path = "/home/user/superman.pub"
+public_key_path = "/root/.ssh/superman.pub"
 key_name = "superman"
 
 #compute
