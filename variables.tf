@@ -39,5 +39,6 @@ variable "public_key_path" {}
 #-----compute----
 variable "dev_instance_type" {}
 variable "dev_ami" {}
+variable "key_name" {}
 
 
