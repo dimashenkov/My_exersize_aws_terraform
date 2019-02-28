@@ -48,6 +48,7 @@ module "compute" {
   key_name = "${var.key_name}"
 
   public_subnets  = "${module.networking.public_subnets}"
+  privat_subnets  = "${module.networking.privat_subnets}"
   public_sg       = "${module.networking.public_sg}"
   private_sg      = "${module.networking.private_sg}"
   subnet_ips      = "${module.networking.subnet_ips}"
@@ -56,11 +57,18 @@ module "compute" {
   db_subnet_group_name = "${module.networking.db_subnet_group_name}"
   wp_rds_security_group_ids = "${module.networking.wp_rds_security_group_ids}"
   wp_dev_security_group_ids = "${module.networking.wp_dev_security_group_ids}"
+  wp_elb_id = "${module.networking.wp_elb_id}"
 
   iam_instance_profile = "${module.iam.iam_instance_profile}"
   s3code = "${module.storage.s3code}"
   lc_instance_type = "${var.lc_instance_type}"
   dev_instance_type = "${var.dev_instance_type}"
   dev_ami     = "${var.dev_ami}"
+
+  asg_max = "${var.asg_max}"
+  asg_min = "${var.asg_min}"
+  asg_grace = "${var.asg_grace}"
+  asg_hct = "${var.asg_hct}"
+  asg_cap = "${var.asg_cap}"
 
 }

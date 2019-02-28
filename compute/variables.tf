@@ -14,6 +14,10 @@ variable "domain_name" {}
 variable "public_subnets" {
 	type = "list"
 }
+
+variable "private_subnets" {
+	type = "list"
+}
 variable "public_sg" {}
 variable "private_sg" {}
 variable "subnet_ips" {
@@ -22,7 +26,7 @@ variable "subnet_ips" {
 variable "db_subnet_group_name" {}
 variable "wp_rds_security_group_ids" {}
 variable "wp_dev_security_group_ids" {}
-
+variable "wp_elb_id" {}
 
 #---------
 variable "public_key_path" {}
@@ -35,3 +39,10 @@ variable "s3code" {}
 
 #----golden AMI----
 variable "lc_instance_type" {}
+
+#---for Auto scaling----
+variable "asg_max" {}
+variable "asg_min" {}
+variable "asg_grace" {}
+variable "asg_hct" {}
+variable "asg_cap" {}

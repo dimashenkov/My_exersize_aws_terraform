@@ -46,3 +46,9 @@ variable "dev_ami" {}
 variable "key_name" {}
 variable "lc_instance_type" {}
 
+variable "asg_max" {}
+variable "asg_min" {}
+variable "asg_grace" {}
+variable "asg_hct" {}
+variable "asg_cap" {}
+

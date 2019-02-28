@@ -2,6 +2,9 @@
 output "public_subnets" {
   value = "${aws_subnet.wp_public_subnet.*.id}"
 }
+output "privat_subnets" {
+  value = "${aws_subnet.wp_privat_subnet.*.id}"
+}
 
 output "public_sg" {
   value = "${aws_security_group.wp_public_sg.id}"
@@ -27,3 +30,7 @@ output "wp_dev_security_group_ids" {
 	value = "${aws_security_group.wp_dev_sg.id}"
 }
 
+
+output "wp_elb_id"{
+	value = "${aws_elb.wp_elb.id}"
+}

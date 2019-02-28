@@ -55,8 +55,7 @@ EOD
 }
 
 #AMI Golden
-
-#random ami ID
+#-----random ami ID------
 
 resource "random_id" "golden_ami" {
   byte_length = 8
@@ -78,7 +77,7 @@ EOT
   }
 }
 
-#------launch configuration--------
+#------launch configuration used for autoscaling groups--------
 
 resource "aws_launch_configuration" "wp_lc" {
   name_prefix          = "wp_lc-"
@@ -91,5 +90,38 @@ resource "aws_launch_configuration" "wp_lc" {
 
   lifecycle {
     create_before_destroy = true #polezno pri blue green deploy
+  }
+}
+
+
+#-----AutoScalingGroup--------- 
+
+# resource "random_id" "rand_asg" {
+# byte_length = 8
+#}
+
+resource "aws_autoscaling_group" "wp_asg" {
+  name                      = "asg-${aws_launch_configuration.wp_lc.id}"
+  max_size                  = "${var.asg_max}"
+  min_size                  = "${var.asg_min}"
+  health_check_grace_period = "${var.asg_grace}"
+  health_check_type         = "${var.asg_hct}"
+  desired_capacity          = "${var.asg_cap}"
+  force_delete              = true
+  load_balancers            = ["${aws_elb.wp_elb.id}"]
+
+  #zonite v koito 6te deploiva -subneti 
+  vpc_zone_identifier = ["${var.privat_subnets.*.id}"]
+
+  launch_configuration = "${aws_launch_configuration.wp_lc.name}"
+
+  tag {
+    key                 = "Name"
+    value               = "wp_asg-instance"
+    propagate_at_launch = true
+  }
+
+  lifecycle {
+    create_before_destroy = true
   }
 }
