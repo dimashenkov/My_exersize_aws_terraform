@@ -241,8 +241,7 @@ resource "aws_security_group" "wp_rds_sg" {
 
 resource "aws_elb" "wp_elb" {
   name = "${var.domain_name}-elb"
-  count          = "${aws_subnet.wp_public_subnet.count}"
-  subnets = ["${aws_subnet.wp_public_subnet.*.id[count.index]}"]
+  subnets = ["${aws_subnet.wp_public_subnet.*.id}"]
 
   security_groups = ["${aws_security_group.wp_public_sg.id}"]
 
