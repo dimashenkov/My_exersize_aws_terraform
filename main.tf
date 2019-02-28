@@ -40,6 +40,7 @@ module "compute" {
 
 
   public_key_path ="${var.public_key_path}"
+  key_name = "${var.key_name}"
 
   public_subnets  = "${module.networking.public_subnets}"
   public_sg       = "${module.networking.public_sg}"
