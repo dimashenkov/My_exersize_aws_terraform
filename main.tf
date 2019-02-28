@@ -59,7 +59,7 @@ module "compute" {
 
   iam_instance_profile = "${module.iam.iam_instance_profile}"
   s3code = "${module.storage.s3code}"
-
+  lc_instance_type = "${lc_instance_type}"
   dev_instance_type = "${var.dev_instance_type}"
   dev_ami     = "${var.dev_ami}"
 
