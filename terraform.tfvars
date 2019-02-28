@@ -14,6 +14,7 @@ elb_healthy_threshold   = "2"
 elb_unhealthy_threshold = "2"
 elb_timeout 		= "3"
 elb_interval		= "30"
+
 # storage
 # bez .co.uk za6toto to 6te se dobavi s script ponatam
 domain_name = "kurshum"

@@ -22,6 +22,10 @@ variable "rds_cidrs" {
 variable "accessip" {
   type = "list"
 }
+variable "elb_healthy_threshold" {}
+variable "elb_unhealthy_threshold" {}
+variable "elb_timeout" {}
+variable "elb_interval" {}
 
 
 #-------storage--------
