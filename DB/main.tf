@@ -13,13 +13,3 @@ resource "aws_db_instance" "wp_db" {
   vpc_security_group_ids = ["${var.wp_rds_security_group_ids}"]
   skip_final_snapshot    = true             #bez taq opciq nemojesh da destroynesh
 }
-
-#db 
-
-resource "aws_route53_record" "db" {
-  zone_id = "${var.route53_secondary_zone_id}"
-  name    = "db.${var.domain_name}.co.uk"
-  type    = "CNAME"
-  ttl     = "300"
-  records = ["${aws_db_instance.wp_db.address}"] 
-}
