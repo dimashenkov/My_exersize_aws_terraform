@@ -18,10 +18,7 @@ output "Public security group" {
   value = "${module.networking.public_sg}"
 }
 #--------------------------------------
-#compute ,join e izpulnen v modula zatva nqma nujda pak
-output "Public Instance IDs" {
-  value = "${module.compute.server_id}"
-}
+#compute 
 
 output "Dev  Instance Public IP" {
   value = "${module.compute.wp_dev_public_ip}"
