@@ -79,6 +79,7 @@ module "DB" {
   domain_name = "${var.domain_name}"
   db_subnet_group_name = "${module.networking.db_subnet_group_name}"
   wp_rds_security_group_ids = "${module.networking.wp_rds_security_group_ids}"
+  route53_secondary_zone_id = "${module.Route53.route53_secondary_zone_id}"
 
   }
 

@@ -17,7 +17,7 @@ resource "aws_db_instance" "wp_db" {
 #db 
 
 resource "aws_route53_record" "db" {
-  zone_id = "${aws_route53_zone.secondary.zone_id}"
+  zone_id = "${var.route53_secondary_zone_id}"
   name    = "db.${var.domain_name}.co.uk"
   type    = "CNAME"
   ttl     = "300"

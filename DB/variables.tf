@@ -7,3 +7,5 @@ variable "domain_name" {}
 
 variable "db_subnet_group_name" {}
 variable "wp_rds_security_group_ids" {}
+
+variable "route53_secondary_zone_id" {}
