@@ -27,4 +27,4 @@ variable "elb_unhealthy_threshold" {}
 variable "elb_timeout" {}
 variable "elb_interval" {}
 
-variable "delegation_set" {}
+
