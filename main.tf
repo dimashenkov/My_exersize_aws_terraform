@@ -75,7 +75,7 @@ module "compute" {
 }
 
 #Deploy route53
-module "route53" {
+module "Route53" {
   source          = "./Route53"
   domain_name     = "${var.domain_name}"
   delegation_set = "${var.delegation_set}"
