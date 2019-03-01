@@ -90,6 +90,6 @@ module "Route53" {
   wp_elb_dns_name = "${module.networking.wp_elb_dns_name}"
   wp_elb_zone_id = "${module.networking.wp_elb_zone_id}"
   wp_vpc_id = "${module.networking.wp_vpc_id}"
-  wp_db_address = "${module.DB.wp_db_address}"
+  #wp_db_address = "${module.DB.wp_db_address}"
     
 }
