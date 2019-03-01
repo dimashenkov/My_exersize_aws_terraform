@@ -24,10 +24,7 @@ module "networking" {
   elb_unhealthy_threshold = "${var.elb_unhealthy_threshold}"
   elb_timeout     = "${var.elb_timeout}"
   elb_interval    = "${var.elb_interval}"
-  domain_name     = "${var.domain_name}"
- # wp_dev_public_ip = "${module.compute.wp_dev_public_ip}"
- # wp_db_address = "${module.compute.wp_db_address}"
-  delegation_set = "${var.delegation_set}"
+
 }
 
 # Deploy storage s3
@@ -75,4 +72,17 @@ module "compute" {
   asg_hct = "${var.asg_hct}"
   asg_cap = "${var.asg_cap}"
 
+}
+
+#Deploy route53
+module "route53" {
+  source          = "./route53"
+  domain_name     = "${var.domain_name}"
+  delegation_set = "${var.delegation_set}"
+  wp_dev_public_ip = "${module.compute.wp_dev_public_ip}"
+  wp_db_address = "${module.compute.wp_db_address}"
+  wp_elb_dns_name = "${module.networking.wp_elb_dns_name}"
+  wp_elb_zone_id = "${module.networking.wp_elb_zone_id}"
+  wp_vpc_id = "${module.networking.wp_vpc_id}"
+    
 }
