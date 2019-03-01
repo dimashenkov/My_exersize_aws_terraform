@@ -24,7 +24,6 @@ module "networking" {
   elb_unhealthy_threshold = "${var.elb_unhealthy_threshold}"
   elb_timeout     = "${var.elb_timeout}"
   elb_interval    = "${var.elb_interval}"
-  domain_name = "${var.domain_name}"
 
 }
 
@@ -77,8 +76,10 @@ module "DB" {
   dbname = "${var.dbname}"
   dbuser = "${var.dbuser}"
   dbpassword = "${var.dbpassword}"
+  domain_name = "${var.domain_name}"
   db_subnet_group_name = "${module.networking.db_subnet_group_name}"
   wp_rds_security_group_ids = "${module.networking.wp_rds_security_group_ids}"
+
   }
 
 #Deploy route53
@@ -90,6 +91,5 @@ module "Route53" {
   wp_elb_dns_name = "${module.networking.wp_elb_dns_name}"
   wp_elb_zone_id = "${module.networking.wp_elb_zone_id}"
   wp_vpc_id = "${module.networking.wp_vpc_id}"
-  wp_db_address = "${module.DB.wp_db_address}"
     
 }

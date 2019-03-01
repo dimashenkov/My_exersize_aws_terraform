@@ -39,12 +39,4 @@ resource "aws_route53_zone" "secondary" {
   vpc_id = "${var.wp_vpc_id}"
 }
 
-#db 
 
-resource "aws_route53_record" "db" {
-  zone_id = "${aws_route53_zone.secondary.zone_id}"
-  name    = "db.${var.domain_name}.co.uk"
-  type    = "CNAME"
-  ttl     = "300"
-  records = ["${var.wp_db_address}"]
-}
