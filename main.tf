@@ -40,10 +40,6 @@ module "storage" {
 # Deploy Compute Resource
 module "compute" {
   source          = "./compute"
-  db_instance_class = "${var.db_instance_class}"
-  dbname = "${var.dbname}"
-  dbuser = "${var.dbuser}"
-  dbpassword = "${var.dbpassword}"
   domain_name = "${var.domain_name}"
 
 
@@ -77,6 +73,10 @@ module "compute" {
 
 module "DB" {
   source          = "./DB"
+  db_instance_class = "${var.db_instance_class}"
+  dbname = "${var.dbname}"
+  dbuser = "${var.dbuser}"
+  dbpassword = "${var.dbpassword}"
   db_subnet_group_name = "${module.networking.db_subnet_group_name}"
   wp_rds_security_group_ids = "${module.networking.wp_rds_security_group_ids}"
   }
