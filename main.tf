@@ -28,6 +28,8 @@ module "networking" {
 
 }
 
+
+
 # Deploy storage s3
 
 module "storage" {
@@ -55,7 +57,6 @@ module "compute" {
   subnet_ips      = "${module.networking.subnet_ips}"
 
   
-  
   db_subnet_group_name = "${module.networking.db_subnet_group_name}"
   wp_rds_security_group_ids = "${module.networking.wp_rds_security_group_ids}"
   wp_dev_security_group_ids = "${module.networking.wp_dev_security_group_ids}"
@@ -72,8 +73,13 @@ module "compute" {
   asg_grace = "${var.asg_grace}"
   asg_hct = "${var.asg_hct}"
   asg_cap = "${var.asg_cap}"
-
 }
+
+module "DB" {
+  source          = "./DB"
+  db_subnet_group_name = "${module.networking.db_subnet_group_name}"
+  wp_rds_security_group_ids = "${module.networking.wp_rds_security_group_ids}"
+  }
 
 #Deploy route53
 module "Route53" {
