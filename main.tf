@@ -76,7 +76,7 @@ module "compute" {
 
 #Deploy route53
 module "route53" {
-  source          = "./route53"
+  source          = "./Route53"
   domain_name     = "${var.domain_name}"
   delegation_set = "${var.delegation_set}"
   wp_dev_public_ip = "${module.compute.wp_dev_public_ip}"
