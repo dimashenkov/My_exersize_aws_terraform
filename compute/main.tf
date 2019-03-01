@@ -33,6 +33,7 @@ domain=${var.domain_name}
 EOF
 EOD
   }
+
   provisioner "local-exec" {
     command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.wp_dev.id} --profile superman && ansible-playbook -i aws_hosts wordpress.yml"
   }
@@ -76,7 +77,6 @@ resource "aws_launch_configuration" "wp_lc" {
     create_before_destroy = true #polezno pri blue green deploy
   }
 }
-
 
 #-----AutoScalingGroup--------- 
 

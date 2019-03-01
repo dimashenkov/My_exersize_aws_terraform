@@ -4,6 +4,7 @@
 output "Bucket Name" {
   value = "${module.storage.bucketname}"
 }
+
 #------------------------------------
 #networking
 output "Public subnets" {
@@ -17,6 +18,7 @@ output "Subnet IPs" {
 output "Public security group" {
   value = "${module.networking.public_sg}"
 }
+
 #--------------------------------------
 #compute 
 

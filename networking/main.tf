@@ -208,6 +208,7 @@ resource "aws_security_group" "wp_private_sg" {
     protocol    = "-1"
     cidr_blocks = ["${var.vpc_cidr}"]
   }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -228,7 +229,8 @@ resource "aws_security_group" "wp_rds_sg" {
     from_port = 3306
     to_port   = 3306
     protocol  = "tcp"
-# moje i s sidr block  no za u4ebna cel napraveno s sec groups
+
+    # moje i s sidr block  no za u4ebna cel napraveno s sec groups
     security_groups = ["${aws_security_group.wp_dev_sg.id}",
       "${aws_security_group.wp_public_sg.id}",
       "${aws_security_group.wp_private_sg.id}",
@@ -236,11 +238,10 @@ resource "aws_security_group" "wp_rds_sg" {
   }
 }
 
-
 #load balancer
 
 resource "aws_elb" "wp_elb" {
-  name = "${var.domain_name}-elb"
+  name    = "${var.domain_name}-elb"
   subnets = ["${aws_subnet.wp_public_subnet.*.id}"]
 
   security_groups = ["${aws_security_group.wp_public_sg.id}"]
@@ -269,4 +270,3 @@ resource "aws_elb" "wp_elb" {
     Name = "wp_${var.domain_name}-elb"
   }
 }
-

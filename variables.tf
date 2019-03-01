@@ -22,27 +22,28 @@ variable "rds_cidrs" {
 variable "accessip" {
   type = "list"
 }
+
 variable "elb_healthy_threshold" {}
 variable "elb_unhealthy_threshold" {}
 variable "elb_timeout" {}
 variable "elb_interval" {}
-
 
 #-------storage--------
 variable "domain_name" {}
 
 #------DB------
 variable "db_instance_class" {}
+
 variable "dbname" {}
 variable "dbuser" {}
 variable "dbpassword" {}
-
 
 #---ansible---
 variable "public_key_path" {}
 
 #-----compute----
 variable "dev_instance_type" {}
+
 variable "dev_ami" {}
 variable "key_name" {}
 variable "lc_instance_type" {}
@@ -53,4 +54,3 @@ variable "asg_grace" {}
 variable "asg_hct" {}
 variable "asg_cap" {}
 variable "delegation_set" {}
-

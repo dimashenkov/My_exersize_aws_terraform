@@ -35,11 +35,11 @@ resource "aws_route53_record" "dev" {
 #secondary zone
 
 resource "aws_route53_zone" "secondary" {
-  name   = "${var.domain_name}.co.uk"
+  name = "${var.domain_name}.co.uk"
+
   vpc {
     vpc_id = "${var.wp_vpc_id}"
   }
-
 }
 
 #db 

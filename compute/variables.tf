@@ -8,17 +8,20 @@ variable "domain_name" {}
 
 #--from network---
 variable "public_subnets" {
-	type = "list"
+  type = "list"
 }
 
 variable "private_subnets" {
-	type = "list"
+  type = "list"
 }
+
 variable "public_sg" {}
 variable "private_sg" {}
+
 variable "subnet_ips" {
-	type = "list"
+  type = "list"
 }
+
 variable "db_subnet_group_name" {}
 variable "wp_rds_security_group_ids" {}
 variable "wp_dev_security_group_ids" {}
@@ -38,6 +41,7 @@ variable "lc_instance_type" {}
 
 #---for Auto scaling----
 variable "asg_max" {}
+
 variable "asg_min" {}
 variable "asg_grace" {}
 variable "asg_hct" {}
