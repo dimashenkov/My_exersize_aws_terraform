@@ -40,5 +40,5 @@ output "wp_elb_dns_name" {
 }
 
 output "wp_elb_zone_id" {
-	value = = "${aws_elb.wp_elb.zone_id}"
+	value = "${aws_elb.wp_elb.zone_id}"
 }
