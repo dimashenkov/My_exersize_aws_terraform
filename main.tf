@@ -87,9 +87,9 @@ module "Route53" {
   domain_name     = "${var.domain_name}"
   delegation_set = "${var.delegation_set}"
   wp_dev_public_ip = "${module.compute.wp_dev_public_ip}"
-  wp_db_address = "${module.compute.wp_db_address}"
   wp_elb_dns_name = "${module.networking.wp_elb_dns_name}"
   wp_elb_zone_id = "${module.networking.wp_elb_zone_id}"
   wp_vpc_id = "${module.networking.wp_vpc_id}"
+  wp_db_address = "${module.DB.wp_db_address}"
     
 }
