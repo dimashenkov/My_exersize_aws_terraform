@@ -24,6 +24,7 @@ module "networking" {
   elb_unhealthy_threshold = "${var.elb_unhealthy_threshold}"
   elb_timeout     = "${var.elb_timeout}"
   elb_interval    = "${var.elb_interval}"
+  domain_name = "${var.domain_name}"
 
 }
 

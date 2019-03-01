@@ -36,7 +36,7 @@ resource "aws_route53_record" "dev" {
 
 resource "aws_route53_zone" "secondary" {
   name   = "${var.domain_name}.co.uk"
-  vpc_id = "${aws_vpc.wp_vpc.id}"
+  vpc_id = "${var.wp_vpc_id}"
 }
 
 #db 

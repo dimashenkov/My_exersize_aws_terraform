@@ -20,7 +20,7 @@ variable "accessip" {
 
 variable "aws_region" {}
 
-
+variable "domain_name" {}
 
 variable "elb_healthy_threshold" {}
 variable "elb_unhealthy_threshold" {}
